@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 
+
 # Create your models here.
 
 class CustomUser(AbstractUser):
@@ -11,7 +12,8 @@ class CustomUser(AbstractUser):
     user_id = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
-        return self.name
+        return self.user_id
+
 
 class Profile(models.Model):
     profile_id = models.CharField(max_length=255, primary_key=True)
@@ -20,8 +22,9 @@ class Profile(models.Model):
     bio = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.name
-    
+        return self.profile_id
+
+
 class Activity(models.Model):
     activity_id = models.CharField(max_length=255, primary_key=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -32,7 +35,8 @@ class Activity(models.Model):
     calories_burned = models.IntegerField()
 
     def __str__(self):
-        return self.name
+        return self.activity_id
+
 
 class WorkoutPlan(models.Model):
     plan_id = models.CharField(max_length=255, primary_key=True)
@@ -41,9 +45,10 @@ class WorkoutPlan(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
     goals = models.TextField()
-    
+
     def __str__(self):
-        return self.name
+        return self.plan_id
+
 
 class WorkoutSession(models.Model):
     session_id = models.CharField(max_length=255, primary_key=True)
@@ -53,7 +58,8 @@ class WorkoutSession(models.Model):
     notes = models.TextField()
 
     def __str__(self):
-        return self.name
+        return self.session_id
+
 
 class Goal(models.Model):
     goal_id = models.CharField(max_length=255, primary_key=True)
@@ -63,7 +69,8 @@ class Goal(models.Model):
     is_achieved = models.BooleanField()
 
     def __str__(self):
-        return self.name
+        return self.goal_id
+
 
 class Progress(models.Model):
     progress_id = models.CharField(max_length=255, primary_key=True)
@@ -74,4 +81,4 @@ class Progress(models.Model):
     muscle_mass = models.FloatField()
 
     def __str__(self):
-        return self.name
+        return self.progress_id
