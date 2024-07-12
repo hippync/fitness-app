@@ -6,5 +6,5 @@ pytest-django
 pytest-cov
 python-dotenv
 pylint
-flake8
+autopep8
 pre-commit
