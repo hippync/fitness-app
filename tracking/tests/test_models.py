@@ -1,4 +1,5 @@
 import pytest
+from django.utils import timezone
 from django.contrib.auth import get_user_model
 from tracking.models import (
     Profile,
@@ -8,7 +9,6 @@ from tracking.models import (
     Goal,
     Progress,
 )
-from django.utils import timezone
 
 # Create your tests here.
 
