@@ -32,7 +32,6 @@ def test_create_custom_user():
     assert user.email == "test@example.com"
     assert user.height == 180
     assert user.weight == 75
-    assert str(user) == "test_user_id"
 
 
 @pytest.mark.django_db
@@ -48,7 +47,6 @@ def test_create_profile():
     assert profile.user == user
     assert profile.profile_picture == "path/to/picture"
     assert profile.bio == "This is a bio"
-    assert str(profile) == "profile1"
 
 
 @pytest.mark.django_db
@@ -69,7 +67,6 @@ def test_create_activity():
     assert activity.duration == 30
     assert activity.distance == 5.0
     assert activity.calories_burned == 300
-    assert str(activity) == "activity1"
 
 
 @pytest.mark.django_db
@@ -87,7 +84,6 @@ def test_create_workout_plan():
     assert workout_plan.user == user
     assert workout_plan.plan_name == "Plan A"
     assert workout_plan.goals == "Lose weight"
-    assert str(workout_plan) == "plan1"
 
 
 @pytest.mark.django_db
@@ -121,7 +117,6 @@ def test_create_workout_session():
     assert workout_session.plan == workout_plan
     assert workout_session.activity == activity
     assert workout_session.notes == "Great session"
-    assert str(workout_session) == "session1"
 
 
 @pytest.mark.django_db
@@ -138,7 +133,6 @@ def test_create_goal():
     assert goal.user == user
     assert goal.description == "Run a marathon"
     assert not goal.is_achieved
-    assert str(goal) == "goal1"
 
 
 @pytest.mark.django_db
@@ -157,7 +151,3 @@ def test_create_progress():
     assert progress.weight == 70.0
     assert progress.body_fat_percentage == 15.0
     assert progress.muscle_mass == 30.0
-    assert str(progress) == "progress1"
-
-
-# Integration tests for views

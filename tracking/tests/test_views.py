@@ -1,7 +1,15 @@
 import pytest
 from rest_framework.test import APIClient
 from django.contrib.auth import get_user_model
-from tracking.models import CustomUser, Profile, Activity, WorkoutPlan, WorkoutSession, Goal, Progress
+from tracking.models import (
+    CustomUser,
+    Profile,
+    Activity,
+    WorkoutPlan,
+    WorkoutSession,
+    Goal,
+    Progress,
+)
 
 # Create your tests here.
 
