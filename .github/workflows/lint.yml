@@ -23,10 +23,18 @@ jobs:
       run: |
         pylint --version
 
+    - name: List files for pylint
+      run: |
+        find . -name "*.py"
+
     - name: Run pylint
       id: pylint
       run: |
         pylint --rcfile=.pylintrc **/*.py > pylint_report.txt || true
+
+    - name: Display pylint report
+      run: |
+        cat pylint_report.txt
 
     - name: Check pylint score
       id: check_score
