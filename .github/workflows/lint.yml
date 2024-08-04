@@ -22,7 +22,7 @@ jobs:
     - name: Run pylint
       id: pylint
       run: |
-        pylint **/*.py > pylint_report.txt || true
+        pylint --rcfile=.pylintrc **/*.py > pylint_report.txt || true
 
     - name: Check pylint score
       id: check_score
