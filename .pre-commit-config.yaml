@@ -2,18 +2,15 @@ repos:
 - repo: https://github.com/pre-commit/mirrors-autopep8
   rev: v1.5.7
   hooks:
-  - id: autopep8
-    args: ['--in-place']
-- repo: https://github.com/pre-commit/mirrors-pylint
-  rev: v2.6.0
-  hooks:
-  - id: pylint
-    exclude: 'requirements.txt'
+    - id: autopep8
+      args: ['--in-place']
+
 - repo: https://github.com/psf/black
   rev: 23.3.0
   hooks:
     - id: black
-      exclude: 'requirements.txt'
+      files: \.py$
+
 - repo: local
   hooks:
     - id: run-tests
