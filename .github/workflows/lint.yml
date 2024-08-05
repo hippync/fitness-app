@@ -24,14 +24,14 @@ jobs:
       run: |
         pylint --version
 
-    - name: List files for pylint
+    - name: List Python files
       run: |
         find . -name "*.py"
 
     - name: Run pylint
       id: pylint
       run: |
-        pylint --rcfile=.pylintrc **/*.py > pylint_report.txt || true
+        find . -name "*.py" | xargs pylint --rcfile=.pylintrc > pylint_report.txt || true
 
     - name: Display pylint report
       run: |
@@ -49,3 +49,10 @@ jobs:
           echo "Pylint check failed"
           exit 1
         fi
+
+    - name: Debug environment
+      run: |
+        echo "Python version:"
+        python --version
+        echo "Installed packages:"
+        pip freeze
